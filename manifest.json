@@ -1,10 +1,10 @@
 {
-  "id": "https://raynoldlibrian.github.io/image2pdf/",
+  "id": "https://image2pdf-theta.vercel.app/",
   "name": "Image to PDF Pro",
   "short_name": "Img2PDF",
   "description": "Convert images to PDF easily and quickly",
-  "start_url": "/image2pdf/",
-  "scope": "/image2pdf/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f0f2f8",
   "theme_color": "#1a56db",
@@ -27,18 +27,6 @@
     {
       "src": "icons/icon-128x128.png",
       "sizes": "128x128",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "icons/icon-152x152.png",
-      "sizes": "152x152",
       "type": "image/png",
       "purpose": "any"
     },
@@ -74,7 +62,7 @@
       "name": "Convert Image",
       "short_name": "Convert",
       "description": "Quickly convert images to PDF",
-      "url": "/image2pdf/",
+      "url": "/",
       "icons": [{ "src": "icons/icon-192x192.png", "sizes": "192x192" }]
     }
   ]
