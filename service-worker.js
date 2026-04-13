@@ -1,7 +1,9 @@
-const CACHE_NAME = 'img2pdf-pro-v2';
+const CACHE_NAME = 'img2pdf-pro-v3';
+const BASE = '/image2pdf/';
 const ASSETS = [
-  './',
-  './index.html',
+  BASE,
+  BASE + 'index.html',
+  BASE + 'manifest.json',
   'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap',
   'https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js',
   'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'
@@ -28,6 +30,12 @@ self.addEventListener('activate', e => {
 // Fetch — cache first, network fallback
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+
+  const url = new URL(e.request.url);
+
+  // Only handle requests within our scope
+  if (!url.pathname.startsWith(BASE)) return;
+
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;
@@ -36,7 +44,7 @@ self.addEventListener('fetch', e => {
         const clone = res.clone();
         caches.open(CACHE_NAME).then(cache => cache.put(e.request, clone));
         return res;
-      }).catch(() => caches.match('./index.html'));
+      }).catch(() => caches.match(BASE + 'index.html'));
     })
   );
 });
