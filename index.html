@@ -147,17 +147,6 @@ body {
   margin-bottom: 1rem;
   transition: background 0.3s, border-color 0.3s;
 }
- /* ── FOOTER ── */
-  footer {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: var(--ink);
-    text-align: center;
-    padding: 12px;
-    font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.3px;
-  }
 
 /* UPLOAD ZONE */
 .upload-zone {
@@ -543,6 +532,36 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
   .refresh-btn span { display: none; }
   .refresh-btn { padding: 0 10px; }
 }
+
+/* FOOTER */
+.app-footer {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.footer-divider {
+  width: 40px; height: 2px;
+  background: linear-gradient(90deg, transparent, #9498b0, transparent);
+  border-radius: 99px;
+  margin-bottom: 4px;
+  opacity: 0.4;
+}
+.footer-text {
+  font-size: 12px;
+  color: #9498b0;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.footer-text span {
+  color: #1a56db;
+  font-weight: 600;
+}
+[data-theme="dark"] .footer-text { color: #5c6080; }
+[data-theme="dark"] .footer-text span { color: #4f7ef8; }
+[data-theme="dark"] .footer-divider { background: linear-gradient(90deg, transparent, #5c6080, transparent); }
 </style>
 </head>
 <body>
@@ -696,8 +715,12 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
   </div>
 </div>
 
+<!-- FOOTER -->
+<footer class="app-footer">
+  <div class="footer-divider"></div>
+  <div class="footer-text">Made with ❤️ by <span>Raynold</span> &nbsp;&bull;&nbsp; 2026</div>
+</footer>
 
-  
 <!-- TOAST -->
 <div class="toast" id="toast">
   <svg id="toastIcon" viewBox="0 0 24 24"></svg>
@@ -971,6 +994,6 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('service-worker.js').catch(() => {});
 }
 </script>
-<footer>Raynold - 2026</footer>
+
 </body>
 </html>
